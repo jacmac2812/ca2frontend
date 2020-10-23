@@ -34,6 +34,7 @@ function hideAllShowOne(idToShow) {
 function menuItemClicked(evt) {
   const id = evt.target.id;
   switch (id) {
+    case "home": hideAllShowOne("home_html"); break
     case "api": hideAllShowOne("api_html"); break
     case "links": hideAllShowOne("links_html"); break
     default: hideAllShowOne("home_html"); break

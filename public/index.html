@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack/Babel-demo</title>
+  <title>Ca2</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 
     <div class="content">
 
-      <!-- This is were you should place your basic HTML for exercise-1 -->
+      <!-- This is were you should place your basic HTML for api -->
       <div id="api_html" style="display:none;">
         <h2>API documentation</h2>
         <br>
@@ -39,7 +39,7 @@
         </thead>
           <tr>
             <td>GET</td>
-            <td>/api/persons/all</td>
+            <td><a href="https://jssimsen.com/tomcat/ca2/api/persons/all"><b>/api/persons/all</b></a></td>
             <td></td>
             <td>{
               "all": [
@@ -53,15 +53,15 @@
           </tr>
           <tr>
             <td>GET</td>
-            <td>/api/persons/{phonenumber}<br>
-            phonenumber: A person phonenumber</td>
+            <td><a href="https://jssimsen.com/tomcat/ca2/api/persons/12345678"><b>/api/persons/{phonenumber}<br>
+              phonenumber: A person phonenumber</b></a></td>
             <td></td>
             <td>person (1)</td>
             <td>(1)</td>
           </tr>
           <tr>
             <td>GET</td>
-            <td>/api/persons/hobbies/{hobby}</td>
+            <td><a href="https://jssimsen.com/tomcat/ca2/api/persons/hobbies/fodbold"><b>/api/persons/hobbies/{hobby}</b></a></td>
             <td></td>
             <td>{
               "all": [
@@ -75,14 +75,14 @@
           </tr>
           <tr>
             <td>GET</td>
-            <td>/api/persons/hobbies/count/{hobby}</td>
+            <td><a href="https://jssimsen.com/tomcat/ca2/api/persons/hobbies/count/fodbold"><b>/api/persons/hobbies/count/{hobby}</b></a></td>
             <td></td>
             <td>{"count":number}</td>
             <td></td>
           </tr>
           <tr>
             <td>GET</td>
-            <td>/api/persons/cities/{city}</td>
+            <td><a href="https://jssimsen.com/tomcat/ca2/api/persons/cities/Helsingør"><b>/api/persons/cities/{city}</b></a></td>
             <td></td>
             <td>{
               "all": [
@@ -96,7 +96,7 @@
           </tr>
           <tr>
             <td>GET</td>
-            <td>/api/persons/zips</td>
+            <td><a href="https://jssimsen.com/tomcat/ca2/api/persons/zips"><b>/api/persons/zips</b></a></td>
             <td></td>
             <td>{
               "all": [
@@ -135,11 +135,11 @@
         <ul id="jokes"></ul>
 
       </div>
-      <!-- End of HTML for exercise-1 -->
+      <!-- End of HTML for api -->
 
 
 
-      <!-- This is were you should place your basic HTML for exercise-2 -->
+      <!-- This is were you should place your basic HTML for links -->
       <div id="links_html" style="display:none;">
         <h2>Links til de forskellige sider</h2>
         <a href="https://docs.google.com/document/d/14eioMEHJsTVH3bmCEjVgNFyYUzKes0zh_iWmG3uUNFk/edit?usp=sharing"><b>Group diary</b></a>
@@ -151,19 +151,19 @@
         <a href="https://travis-ci.com/github/jacmac2812/ca2backend"><b>Travis</b></a>
         
       </div>
-      <!-- End of HTML for exercise-2 -->
+      <!-- End of HTML for links -->
 
 
-      <!-- This is were you should place your basic HTML for exercise-3 -->
-      <div id="ex3_html" style="display:none;">
+      <!-- This is were you should place your basic HTML for home -->
+      <div id="home_html" style="display:none;">
         <h3>Ex-3</h3>
         <p>Add your basic HTML for Exercise 3 here</p>
 
-        <div class="row" style="min-height: 5em;"">
-      <div class=" col-md-8 pre-scrollable" style="background-color: lightgrey;">
-          <h5>All Users</h5>
+        <div class="row" style="min-height: 5em;">
+      <div class=" col-md-8 pre-scrollable" style="background-color: rgb(255, 255, 255);">
+          <h5 style="background-color: rgb(255, 255, 255);"> All Users</h5>
           <table class="table">
-            <thead>
+            <thead class="thead-dark">
               <tr>
                 <th>Id</th>
                 <th>Age</th>
@@ -176,31 +176,23 @@
             <tbody>
           </table>
         </div>
-        <div class="col-md-4" style="background-color: powderblue;">
+        <div class="col-md-4" style="background-color: rgb(236, 182, 1);">
           <h5>Find User</h5>
         </div>
       </div>
       <div class="row" style="min-height: 5em;">
-        <div class="col-md-4" style="background-color: powderblue;">
+        <div class="col-md-4" style="background-color: rgb(19, 160, 0);">
           <h5>Add User</h5>
         </div>
-        <div class="col-md-4" style="background-color: lightgrey;">
+        <div class="col-md-4" style="background-color: rgb(54, 74, 190);">
           <h5>Edit User</h5>
         </div>
-        <div class="col-md-4" style="background-color: powderblue;">
+        <div class="col-md-4" style="background-color: rgb(255, 0, 0);">
           <h5>Delete User</h5>
         </div>
       </div>
       <!-- </div> -->
-      <!-- End of HTML for exercise-3 -->
-
-      <!---- HTML for the About page -->
-      <div id="home_html" style="display:none;">
-        <h3>About</h3>
-        <p>Watch the small video given as intro to this code, BEFORE you start using it</p>
-      </div>
-      <!-- End of HTML for ABOUT Page -->
-
+      <!-- End of HTML for home -->
     </div>
 
     <!--End of all content -->
