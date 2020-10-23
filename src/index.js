@@ -1,9 +1,51 @@
 import "./style.css"
+import "bootstrap"
 import "bootstrap/dist/css/bootstrap.css"
 import "./jokeFacade"
+import personFacade from "./personFacade"
 import jokeFacade from "./jokeFacade"
 
+
+ 
 document.getElementById("all-content").style.display = "block"
+
+/*
+
+const URL ="https://jssimsen.com/tomcat/ca2/api/persons/all"
+
+
+personFacade.getAllUsers()
+.then(data=> {
+  const persons = data.all;
+  const tableRows = persons.map(person => `
+   <tr>
+    <td>${person.id}</td>
+    <td>${person.firstName}</td>
+    <td>${person.lastName}</td>
+    <td>${person.phone}</td>
+    <td>${person.street}</td>
+    <td>${person.zip}</td>
+    <td>${person.city}</td>
+    </tr>
+    `) 
+  const tableRowsAsStr = tablerows.join("");
+  document.getElementById("tbody").innerHTML = tableRowsAsStr
+
+})
+.catch(err => {
+  if (err.status) {
+    err.fullError.then(e =>  {
+      console.log(e.message)
+      document.getElementById("error").innerHTML = e.message;
+
+    })
+  }
+  else { console.log("Network error"); }
+});
+
+*/
+
+
 
 /* 
   Add your JavaScript for all exercises Below or in separate js-files, which you must the import above
