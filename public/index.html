@@ -15,18 +15,122 @@
   -->
   <div id="all-content" style="display: none;">
     <ul id="menu" class="header">
-      <li><a href="" id="about">About</a></li>
-      <li><a href="" id="ex1">Ex1</a></li>
-      <li><a href="" id="ex2">Ex2</a></li>
-      <li><a href="" id="ex3">Ex3</a></li>
+      <li><a href="" id="home">Home</a></li>
+      <li><a href="" id="api">Api documentation</a></li>
+      <li><a href="" id="links">Links</a></li>
     </ul>
 
     <div class="content">
 
       <!-- This is were you should place your basic HTML for exercise-1 -->
-      <div id="ex1_html" style="display:none;">
-        <h3>Exercise 1</h3>
-        <p>Add your basic HTML for Exercise 1 here</p>
+      <div id="api_html" style="display:none;">
+        <h2>API documentation</h2>
+        <br>
+        <table class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">Method</th>
+            <th scope="col">URL</th>
+            <th scope="col">Requst body/JSon</th>
+            <th scope="col">Response/JSon</th>
+            <th scope="col">Error (e)</th>
+          </tr>
+        </thead>
+          <tr>
+            <td>GET</td>
+            <td>/api/persons/all</td>
+            <td></td>
+            <td>{
+              "all": [
+              {
+              person
+              },
+              {
+              person
+              },...</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/persons/{phonenumber}<br>
+            phonenumber: A person phonenumber</td>
+            <td></td>
+            <td>person (1)</td>
+            <td>(1)</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/persons/hobbies/{hobby}</td>
+            <td></td>
+            <td>{
+              "all": [
+              {
+              person
+              },
+              {
+              person
+              },...</td>
+            <td>(e1)</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/persons/hobbies/count/{hobby}</td>
+            <td></td>
+            <td>{"count":number}</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/persons/cities/{city}</td>
+            <td></td>
+            <td>{
+              "all": [
+              {
+              person
+              },
+              {
+              person
+              },...</td>
+            <td>(e1)</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/api/persons/zips</td>
+            <td></td>
+            <td>{
+              "all": [
+              {
+              zip
+              },
+              {
+              zip
+              },...</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/api/persons</td>
+            <td>person (1)
+              without id</td>
+            <td>person (1)</td>
+            <td>(e2)</td>
+          </tr>
+          <tr>
+            <td>PUT</td>
+            <td>/api/persons/{id}</td>
+            <td>person (1)
+              without id</td>
+            <td>person (1)</td>
+            <td>(e1)(e2)</td>
+          </tr>
+          <tr>
+            <td>DELETE</td>
+            <td>/api/persons/{id}</td>
+            <td></td>
+            <td>person (1)</td>
+            <td>(e1)</td>
+          </tr>
+        </table>
         <ul id="jokes"></ul>
 
       </div>
@@ -35,9 +139,16 @@
 
 
       <!-- This is were you should place your basic HTML for exercise-2 -->
-      <div id="ex2_html" style="display:none;">
-        <h3>Exercise 2</h3>
-        <p id="ex2p">Add your basic HTML for Exercise 2 here</p>
+      <div id="links_html" style="display:none;">
+        <h2>Links til de forskellige sider</h2>
+        <a href="https://docs.google.com/document/d/14eioMEHJsTVH3bmCEjVgNFyYUzKes0zh_iWmG3uUNFk/edit?usp=sharing"><b>Group diary</b></a>
+        <br>
+        <a href="https://github.com/jacmac2812/ca2backend"><b>Github backend</b></a>
+        <br>
+        <a href="https://github.com/jacmac2812/ca2frontend"><b>Github frontend</b></a>
+        <br>
+        <a href="https://travis-ci.com/github/jacmac2812/ca2backend"><b>Travis</b></a>
+        
       </div>
       <!-- End of HTML for exercise-2 -->
 
@@ -83,7 +194,7 @@
       <!-- End of HTML for exercise-3 -->
 
       <!---- HTML for the About page -->
-      <div id="about_html" style="display:none;">
+      <div id="home_html" style="display:none;">
         <h3>About</h3>
         <p>Watch the small video given as intro to this code, BEFORE you start using it</p>
       </div>
