@@ -2,6 +2,7 @@ import "./style.css"
 import "bootstrap"
 import "bootstrap/dist/css/bootstrap.css"
 import personFacade from "./personFacade"
+import { map } from "jquery"
 
 /* 
   Add your JavaScript for all exercises Below or in separate js-files, which you must the import above
@@ -45,11 +46,14 @@ function findByID() {
   let phone = document.getElementById("findByPhone").value;
   personFacade.getById(phone)
     .then(data => {
+      console.log(data)
       document.getElementById("error").style.display = "none" /* søger for at fjerne error div'en når functionen bliver kaldt efter en fejl */
       const persons = [];
       persons.push(data);
       const tableRow = personFacade.mapPerson(persons);
+      console.log(tableRow)
       const tableRowAsString = tableRow.join("");
+      console.log(tableRowAsString)
       document.getElementById("allUserRows").innerHTML = tableRowAsString;
     })
     .catch(err => {
@@ -65,7 +69,7 @@ function findByID() {
 }
 /*Her slutter find person by phone number*/
 
-
+/* add person start*/
 let addPersonBtn = document.getElementById("addPersonBtn");
 addPersonBtn.addEventListener('click', (event) => {
   event.preventDefault()
@@ -135,7 +139,146 @@ addPersonBtn.addEventListener('click', (event) => {
 
 let addPhoneCount = 0
 let editPhoneCount = 0
+/* add person slut*/
 
+/* edit person start*/
+let editPersonBtn = document.getElementById("editPersonBtn");
+editPersonBtn.addEventListener('click', (event) => {
+  event.preventDefault()
+
+  let editBtn = document.getElementById("editBtn");
+  editBtn.addEventListener('click', (event) => {
+    event.preventDefault()
+
+    let id = document.getElementById("eId").value;
+    let firstName = document.getElementById("eFirstName").value;
+    let lastName = document.getElementById("eLastName").value;
+    let email = document.getElementById("eEmail").value;
+    let street = document.getElementById("eStreet").value;
+    let zipCode = document.getElementById("eZipCode").value;
+    let number = document.getElementById("eNumber").value;
+    let phoneDesc = document.getElementById("ePhoneDesc").value;
+
+    let name = document.getElementById("eName").value;
+    let hobbyDesc = document.getElementById("eHobbyDesc").value;
+    let city = document.getElementById("eCity").value;
+
+    const hobbyObject = {
+      name,
+      description : hobbyDesc
+    }
+
+    const phoneObject = {
+      number,
+      description : phoneDesc
+    }
+
+    const hobbies = [
+      hobbyObject
+    ]
+
+    const phones = [
+      phoneObject
+    ]
+
+
+
+    const editPerson = {
+      firstName,
+      lastName,
+      email,
+      street,
+      zipCode,
+      city,
+      phones,
+      hobbies
+    }
+    
+    document.getElementById("error").innerHTML = "";
+
+    personFacade.editPerson(editPerson, id)
+      .then(makeListOfAllUsers())
+      .catch(err => {
+        if (err.status) {
+          err.fullError.then(e => document.getElementById("error").innerHTML = e.message)
+        } else { console.log("Network error"); }
+      });
+  });
+});
+/* edit person slut*/
+
+/* delete person start*/
+
+let deletePerson = document.getElementById("deleteBTN");
+deletePerson.addEventListener('click', (event) => {
+  event.preventDefault();
+  personFacade.deletePerson(document.getElementById("deletePerson").value)
+  .then(person => {
+      status.style.color = "green";
+      status.innerText = `${person.firstName} ${person.lastName} (ID: ${person.id}) has been deleted.`;
+      removeStatusText(status, 10000);
+      getAll();
+  })
+  .then(makeListOfAllUsers)
+  .catch(err => {
+    if (err.status) {
+      err.fullError.then(e => document.getElementById("error").innerHTML = e.message)
+    } else { console.log("Network error"); }
+  });
+});
+/* delete person slut*/
+
+/*find user by hobby start*/
+document.getElementById("findByHobbyBTN").addEventListener("click", findByHobby);
+function findByHobby() {
+  let hobby = document.getElementById("findByHobby").value;
+  personFacade.getByHobby(hobby)
+    .then(data => {
+      document.getElementById("error").style.display = "none" /* søger for at fjerne error div'en når functionen bliver kaldt efter en fejl */
+      const persons = data.all;
+      const tableRows = personFacade.mapPerson(persons);
+      const tableRowsAsString = tableRows.join("");
+      document.getElementById("allUserRows").innerHTML = tableRowsAsString;
+    })
+    .catch(err => {
+      if (err.status) {
+        document.getElementById("error").style.display = "block"
+        err.fullError.then(e => {
+          document.getElementById("error").innerHTML = e.detail
+          console.log(e.detail)
+        })
+      }
+      else { console.log("Network error"); }
+    });
+}
+
+/*find user by hobby slut*/
+
+/* find user by city start*/
+document.getElementById("findByCityBTN").addEventListener("click", findByCity);
+function findByCity() {
+  let city = document.getElementById("findByCity").value;
+  personFacade.getByCity(city)
+    .then(data => {
+      document.getElementById("error").style.display = "none" /* søger for at fjerne error div'en når functionen bliver kaldt efter en fejl */
+      const persons = data.all;
+      const tableRows = personFacade.mapPerson(persons);
+      const tableRowsAsString = tableRows.join("");
+      document.getElementById("allUserRows").innerHTML = tableRowsAsString;
+    })
+    .catch(err => {
+      if (err.status) {
+        document.getElementById("error").style.display = "block"
+        err.fullError.then(e => {
+          document.getElementById("error").innerHTML = e.detail
+          console.log(e.detail)
+        })
+      }
+      else { console.log("Network error"); }
+    });
+}
+
+/* find user by city slut*/
 
 /* 
 Do NOT focus on the code below, UNLESS you want to use this code for something different than
@@ -153,9 +296,9 @@ function hideAllShowOne(idToShow) {
 function menuItemClicked(evt) {
   const id = evt.target.id;
   switch (id) {
-    case "ex1": hideAllShowOne("ex1_html"); break
-    case "ex2": hideAllShowOne("ex2_html"); break
-    case "ex3": hideAllShowOne("ex3_html"); break
+    case "home": hideAllShowOne("ex1_html"); break
+    case "api": hideAllShowOne("ex2_html"); break
+    case "links": hideAllShowOne("ex3_html"); break
     default: hideAllShowOne("about_html"); break
   }
   evt.preventDefault();

@@ -41,6 +41,18 @@
       <input type="text" class="form-control" id="findByPhone" placeholder="Find by phone">
       <button type="submit" id="findByBTN" class="btn btn-secondary">Find</button>
     </div>
+    <div class="row" style="min-height: 5em;"></div>
+    <div class="col-md-4" style="background-color: powderblue;">
+      <h5>Find User med</h5>
+      <input type="text" class="form-control" id="findByHobby" placeholder="Find by hobby">
+      <button type="submit" id="findByHobbyBTN" class="btn btn-secondary">Find</button>
+    </div>
+    <div class="row" style="min-height: 5em;"></div>
+    <div class="col-md-4" style="background-color: powderblue;">
+      <h5>Find User By</h5>
+      <input type="text" class="form-control" id="findByCity" placeholder="Find by city">
+      <button type="submit" id="findByCityBTN" class="btn btn-secondary">Find</button>
+    </div>
     <div class="col-md-8 pre-scrollable" style="background-color: lightgrey;">
       <h5>Users</h5> <button type="submit" id="getAllBTN" class="btn btn-secondary">Get all</button>
       <table class="table">
@@ -61,13 +73,16 @@
       </table>
     </div>
 
-
+    <div class="col-md-4" style="background-color: powderblue;">
+      <h5>Delete User</h5>
+      <input type="text" class="form-control" id="deletePerson" placeholder="Delete user with id">
+      <button type="submit" id="deleteBTN" class="btn btn-secondary">Delete user</button>
+    </div>
 
     <button type="button" id="addPersonBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
       Add New Person
     </button>
-
-    <!-- Modal -->
+    <!-- Modal add person start -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -128,6 +143,77 @@
       </div>
     </div>
   </div>
+  <!-- modal slut add person -->
+
+  <button type="button" id="editPersonBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModalEdit">
+    Edit Person
+  </button>
+      <!-- Modal edit person start -->
+      <div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div id="header" class="modal-header">
+            </div>
+            <div class="modal-body">
+              <input type="hidden" id="id">
+              <div class="form-group">
+                <label for="eId">ID på person</label>
+                <input type="text" class="form-control" id="eId">
+              </div>
+              <div class="form-group">
+                <label for="eFirstName">First Name</label>
+                <input type="text" class="form-control" id="eFirstName">
+              </div>
+              <div class="form-group">
+                <label for="eLastName">Last Name</label>
+                <input type="text" class="form-control" id="eLastName">
+              </div>
+              <div class="form-group">
+                <label for="eEmail">Email</label>
+                <input type="text" class="form-control" id="eEmail">
+              </div>
+              <div class="form-group">
+                <label for="eNumber">Phone Numbers</label>
+                <input type="text" class="form-control" id="eNumber">
+              </div>
+              <div class="form-group">
+                <label for="ePhoneDesc">Phone Description(Work, private)</label>
+                <input type="text" class="form-control" id="ePhoneDesc">
+              </div>
+              <div class="form-group">
+                <label for="eStreet">Street</label>
+                <input type="text" class="form-control" id="eStreet">
+              </div>
+              <div class="form-group">
+                <label for="eZipCode">Zip Code</label>
+                <input type="text" class="form-control" id="eZipCode">
+              </div>
+              <div class="form-group">
+                <label for="eCity">City</label>
+                <input type="text" class="form-control" id="eCity">
+              </div>
+              <div class="form-group">
+                <label for="eName">Hobby Name</label>
+                <input type="text" class="form-control" id="eName">
+              </div>
+              <div class="form-group">
+                <label for="eHobbyDesc">Hobby Description</label>
+                <input type="text" class="form-control" id="eHobbyDesc">
+              </div>
+  
+  
+              <!-- Allow form submission with keyboard without duplicating the dialog button -->
+              <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="button" id="editBtn" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+            <!-- Modal edit person slut -->
 
 
 

@@ -20,9 +20,6 @@ function makeOptions(method, body) {
     return opts;
 }
 
-function makeTable(){
-
-}
 function mapPerson(persons){
    return persons.map(person => `
     <tr>
@@ -49,6 +46,16 @@ function getById(phone) {
         .then(handleHttpErrors)
 }
 
+function getByHobby(hobby) {
+    return fetch(SERVER_URL + "hobbies/" + hobby)
+        .then(handleHttpErrors)
+}
+
+function getByCity(city) {
+    return fetch(SERVER_URL + "cities/" + city)
+        .then(handleHttpErrors)
+}
+
 function addPerson(person) {
     const options = makeOptions("POST", person)
     return fetch(SERVER_URL, options)
@@ -58,7 +65,13 @@ function addPerson(person) {
 function editPerson(person, id) {
     const options = makeOptions("PUT", person)
     return fetch(SERVER_URL + id , options)
-        .then(handleHttpErrors)
+}
+
+function deletePerson(id){
+    const options = makeOptions("DELETE")
+    return fetch(SERVER_URL+id, options)
+    .then(handleHttpErrors)
+
 }
 
 const personFacade = {
@@ -67,6 +80,9 @@ const personFacade = {
     mapPerson,
     addPerson,
     editPerson,
+    deletePerson,
+    getByHobby,
+    getByCity
 }
 
 export default personFacade;
